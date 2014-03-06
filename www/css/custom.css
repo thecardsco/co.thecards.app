@@ -1,0 +1,80 @@
+
+/* CSS Document */
+
+#card
+{
+	padding: 10px 10px 10px 10px;
+	border-radius: 10px;
+	border: 1pt solid rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+	letter-spacing: -0.5px;
+	line-height: 1em;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#cardSocialLogos
+{
+	text-align: right;
+	margin-top: 2px;
+	height: 40px;
+}
+
+#cardLogoImg
+{
+	height: 40px;
+	width: auto;
+}
+
+#cardName
+{
+	font-size: 140%;
+	font-weight: 700;
+	line-height: 1.25em;
+}
+
+#cardTitle
+{
+	font-size: 110%;
+	font-weight: 400;
+	font-style: italic;
+	line-height: 1.25em;
+}
+
+#cardContact
+{
+	font-size: 80%;
+	font-weight: 400;
+	line-height: 1em;
+}
+
+.ui-panel
+{
+		
+}
+
+.ui-panel.ui-panel-open
+{
+	position: fixed;
+}
+
+.ui-panel-inner
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 1px;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	background-color: #d1e0f0;
+}
+
+#searchbar
+{
+	display: none;
+}

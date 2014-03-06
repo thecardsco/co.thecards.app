@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>thecards&trade;</title>
+
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+<link rel="stylesheet" type="text/css" href="css/themes/style.css">
+<link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+
+<!--JS-->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.mobile.js" type="application/javascript" ></script>
+<script src="js/hammer.js" type="application/javascript" ></script>
+<script src="js/jquery.jrumble.js" type="application/javascript"></script>
+
+<!--CORDOVA PLUGINS-->
+<script src="cordova.js"></script>
+<script src="PushNotification.js"></script>
+<script src="pushwoosh.js"></script>
+<script src="SocialSharing.js"></script>
+
+<!--CUSTOM JS-->
+<script src="js/thecards.js"></script>
+
+</head>
+<body>
+<div id="main" data-role="page" data-theme="a">
+	<div data-role="panel" id="leftMenu" data-position="left" data-display="reveal">
+		<div id="leftMenuDiv">
+		</div>
+	</div>
+	<div data-role="panel" id="contactMenu" data-position="left" data-display="reveal">
+		<div id="contactMenuDiv">
+			<ul data-role="listview" data-autodividers="false" data-inset="false" data-theme="d">
+				<li data-role="list-divider">Cep Telefonu</li>
+				<li data-icon="false"><a id='gsm' href="#" onClick="gotoURL('tel:'+$user.gsm);$('#leftMenu').panel('close')"><i class="fa fa-phone"></i> Ara</a></li>
+				<li data-icon="false"><a id='sms' href="#" onClick="gotoURL('sms:'+$user.gsm);$('#leftMenu').panel('close')"><i class="fa fa-mobile"></i> SMS</a></li>
+				<li data-role="list-divider">İş Telefonu</li>
+				<li data-icon="false"><a id='phone' href="#" onClick="gotoURL('tel:'+$user.phone);$('#leftMenu').panel('close')"><i class="fa fa-phone"></i> Ara</a></li>
+				<li data-role="list-divider">E-Posta</li>
+				<li data-icon="false"><a href="#" onClick="gotoURL('mailto:'+$user.email);$('#leftMenu').panel('close')"><i class="fa fa-envelope"></i> Gönder</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="panel" id="connectMenu" data-position="right" data-display="reveal">
+		<div id="connectMenuDiv">
+			<ul data-role="listview" data-autodividers="false" data-inset="false" data-theme="d">
+				<li data-icon="false"><a id="facebook" href="#" onClick="gotoURL('facebook');$('#rightMenu').panel('close')"><i class="fa fa-facebook"></i> Facebook</a></li>
+				<li data-icon="false"><a id="twitter" href="#" onClick="gotoURL('twitter');$('#rightMenu').panel('close')"><i class="fa fa-twitter"></i> Twitter</a></li>
+				<li data-icon="false"><a id="linkedin" href="#" onClick="gotoURL('linkedin');$('#rightMenu').panel('close')"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+				<li data-icon="false"><a id="google" href="#" onClick="gotoURL('google');$('#rightMenu').panel('close')"><i class="fa fa-google-plus"></i> Google+</a></li>
+				<li data-icon="false"><a id="skype" href="#" onClick="gotoURL('skype');$('#rightMenu').panel('close')"><i class="fa fa-skype"></i> Skype</a></li>
+				<li data-icon="false"><a id="www" href="#" onClick="gotoURL('www');$('#rightMenu').panel('close')"><i class="fa fa-globe"></i> Web Sitesi</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="panel" id="locationMenu" data-position="right" data-display="reveal">
+		<div id="locationMenuDiv">
+			<ul data-role="listview" data-autodividers="false" data-inset="false" data-theme="d">
+				<li data-icon="false"><a href="#" id="location" onClick="gotoURL('location');$('#rightMenu').panel('close')"><i class="fa fa-map-marker"></i> Haritada Göster</a></li>
+				<li data-icon="false"><a href="#" id="directions" onClick="gotoURL('directions');$('#rightMenu').panel('close')"><i class="fa fa-road"></i> Yol Tarifi</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="panel" id="rightMenu" data-position="right" data-display="reveal">
+		<div id="rightMenuDiv">
+		</div>
+	</div>
+	<div data-position="fixed" data-role="header" data-theme="a">
+		<div data-role="navbar">
+			<div id="searchbar">
+			<input type="search" name="q" id="search" value="" data-mini="true" data-inline="true">
+			</div>
+			<ul>
+				<li><a href="#leftMenu"><i class="fa fa-user fa-2x"></i><br>
+					<small>Ben</small></a></li>
+				<li><a href="#" onClick="$('#searchbar').toggle('show');"><i class="fa fa-search fa-2x"></i><br><small>&nbsp;</small></a></li>
+				<li><a href="#rightMenu"><i class="fa fa-users fa-2x"></i><br>
+					<small>Kartlarım</small></a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">
+		<div id="page-placer">
+			<div id="card">
+				<div class="ui-grid-a" id="cardLogo">
+					<div class="ui-block-a" id="cardLogoPlacer">
+					</div>
+					<div class="ui-block-b" id="cardSocialLogos">
+					</div>
+				</div>
+				<div id="cardInfo">
+					<span id="cardName"></span><br/>
+					<span id="cardTitle"></span><br/>
+					<span id="cardContact"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div data-position="fixed" data-role="footer" data-theme="c">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#sharePage" data-rel="dialog" id="sharebtn"><i class="fa fa-share-square-o fa-2x"></i><br>
+					<small>Paylaş</small></a></li>
+				<li><a href="#contactMenu"><i class="fa fa-comments-o fa-2x"></i><br>
+					<small>İletişim</small></a></li>
+				<li><a href="#connectMenu"><i class="fa fa-chain fa-2x"></i><br>
+					<small>Bağlantılar</small></a></li>
+				<li><a href="#locationMenu"><i class="fa fa-location-arrow fa-2x"></i><br>
+					<small>Konum</small></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div data-role="page" id="sharePage">
+	<div data-role="header">
+		<h1>Paylaş</h1>
+	</div>
+	<div data-role="content">
+		<
+	</div>
+</div>
+<script>init();</script>
+</body>
+</html>

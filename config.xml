@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+	xmlns:gap = "http://phonegap.com/ns/1.0"
+	id        = "co.thecards.app"
+	version   = "0.2.0">
+
+<icon src="splashicons/apple-touch-icon-57x57.png" gap:platform="ios" width="57" height="57" />
+<icon src="splashicons/apple-touch-icon-72x72" gap:platform="ios" width="72" height="72" />
+<icon src="splashicons/apple-touch-icon_114x114" gap:platform="ios" width="114" height="114" />
+<icon src="splashicons/apple-touch-icon-152x152" gap:platform="ios" width="144" height="144" /
+<gap:splash src="splashicons/apple-touch-startup-image-320x460.png" gap:platform="ios" width="320" height="460" />
+<gap:splash src="splashicons/apple-touch-startup-image-640x920.png" gap:platform="ios" width="640" height="920" />
+<gap:splash src="splashicons/apple-touch-startup-image-640x1096.png" gap:platform="ios" width="640" height="1096" />
+<gap:splash src="splashicons/apple-touch-startup-image-768x01024.png" gap:platform="ios" width="1024" height="768" />
+<gap:splash src="splashicons/apple-touch-startup-image-768x1004.png" gap:platform="ios" width="768" height="1004" />
+<gap:splash src="splashicons/apple-touch-startup-image-1496x2048.png" gap:platform="ios" width="2048" height="1496" />
+<gap:splash src="splashicons/apple-touch-startup-image-1536x2008" gap:platform="ios" width="1536" height="2008" />
+
+<name>thecards.co</name>
+<description>
+thecards.co
+</description>
+
+<author href="https://thecards.co" email="cardholder@thecards.co">
+thecards.co Team
+</author>
+
+<gap:plugin name="com.phonegap.plugins.PushPlugin"/>
+<gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
+<gap:plugin name="nl.x-services.plugins.socialsharing" />
+<access origin="*.pushwoosh.com"/>
+
+<feature name="Battery">
+	<param name="ios-package" value="CDVBattery" />
+</feature>
+
+<feature name="SocialSharing">
+	<param name="ios-package" value="SocialSharing" />
+</feature>
+
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+</feature>
+
+<feature name="SocialSharing">
+  <param name="wp-package" value="SocialSharing"/>
+</feature>
+
+<preference name="DisallowOverscroll" value="true" />
+
+</widget>
